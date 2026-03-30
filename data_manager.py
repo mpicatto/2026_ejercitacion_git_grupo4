@@ -1,6 +1,11 @@
+from data_manager import filtrar_enfermos
+
 # Alumno 1 - Arquitecto de Datos
 
 inventario = []
+
+
+
 
 def inicializar_datos():
     global inventario
@@ -31,3 +36,10 @@ def agregar_arbol(especie, estado, ubicacion):
     }
     inventario.append(nuevo_arbol)
     return "Árbol agregado correctamente"
+
+
+# Alumno 5:
+def filtrar_enfermos():
+    return [arbol for arbol in inventario if arbol["estado"] == "Enfermo"]
+
+
