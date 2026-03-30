@@ -1,5 +1,5 @@
 from data_manager import *
-
+from data_manager import filtrar_enfermos
 
 def mostrar_menu():
     print("\n=== MENÚ PRINCIPAL ===")
@@ -11,24 +11,24 @@ def mostrar_menu():
 def main():
     inicializar_datos()
 
+while True:
+    print("\n--- Eco Tracker ---")
+    print("1. Ver árboles")
+    print("2. Agregar árbol")
+    print("3. Ver árboles enfermos")
+    print("4. Salir")
 
-    while True:
-        mostrar_menu()
-        opcion = input("Selecciona una opción: ")
+    opcion = input("Elegí una opción: ")
 
-
-        if opcion == "1":
-            print("Función aún no implementada.")
-       
-        elif opcion == "2":
-            print("Función aún no implementada.")
-       
-        elif opcion == "3":
-            print("Saliendo del programa...")
-            break
-       
+    if opcion == "3":
+        enfermos = filtrar_enfermos()
+        
+        if len(enfermos) == 0:
+            print("No hay árboles enfermos.")
         else:
-            print("Opción inválida. Intenta de nuevo.")
+            print("\nÁrboles enfermos:")
+            for arbol in enfermos:
+                print(f"- {arbol['especie']} | {arbol['ubicacion']}")
 
 
 if __name__ == "__main__":
